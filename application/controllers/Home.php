@@ -10,8 +10,18 @@ class Home extends CI_Controller {
  
  function index()
  {
-   
-     $this->load->view('main');
+   $this->load->library('googlemaps');
+
+$config['center'] = '-6.227934, 106.787109';
+$config['zoom'] = 'auto';
+$this->googlemaps->initialize($config);
+
+$marker = array();
+//$marker['position'] = '37.429, -122.1419';
+$this->googlemaps->add_marker($marker);
+$data['map'] = $this->googlemaps->create_map();
+
+     $this->load->view('main', $data);
    
    
  }
