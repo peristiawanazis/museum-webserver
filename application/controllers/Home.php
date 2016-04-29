@@ -26,6 +26,7 @@ class Home extends CI_controller {
  // Loop through the coordinates we obtained above and add them to the map
  foreach ($coords as $coordinate) {
  $marker = array();
+ $marker['infowindow_content'] = $coordinate->museum_name;
  $marker['position'] = $coordinate->museum_lat.','.$coordinate->museum_long;
  $this->googlemaps->add_marker($marker);
  }

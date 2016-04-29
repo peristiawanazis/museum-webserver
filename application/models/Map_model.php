@@ -7,9 +7,10 @@ class Map_model extends CI_Model {
  function get_coordinates()
  {
  $return = array();
- $this->db->select("museum_lat,museum_long");
+ $this->db->select("museum_lat,museum_long,museum_name");
  $this->db->from("museum_loc");
- $query = $this->db->get();
+ $this->db->join('museum', 'museum.museum_id = museum_loc.museum_id');
+  $query = $this->db->get();
  if ($query->num_rows()>0) {
  foreach ($query->result() as $row) {
  array_push($return, $row);
