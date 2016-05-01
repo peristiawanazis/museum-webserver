@@ -14,6 +14,7 @@
     <script src="<?=base_url()?>/js/jquery-1.10.2.js"></script>
   <script src="<?=base_url()?>/js/jquery-ui.js"></script>
 
+
 <?php echo $map['js']; ?>
   <script>
  $(document).ready(function () {
@@ -27,6 +28,42 @@
   });
 });
   </script>
+  <script type="text/javascript">
+ 
+      $(document).ready(function(){
+        
+        $('.lightbox').click(function(){
+          $('.backdrop, .box').animate({'opacity':'.50'}, 300, 'linear');
+          $('.box').animate({'opacity':'1.00'}, 300, 'linear');
+          $('.backdrop, .box').css('display', 'block');
+        });
+        $('.lightbox_edit').click(function(){
+          $('.backdrop, .box_edit').animate({'opacity':'.50'}, 300, 'linear');
+          $('.box_edit').animate({'opacity':'1.00'}, 300, 'linear');
+          $('.backdrop, .box_edit').css('display', 'block');
+        });
+ 
+        $('.close').click(function(){
+          close_box();
+        });
+ 
+        $('.backdrop').click(function(){
+          close_box();
+        });
+ 
+      });
+ 
+      function close_box()
+      {
+        $('.backdrop, .box').animate({'opacity':'0'}, 300, 'linear', function(){
+          $('.backdrop, .box').css('display', 'none');
+        });
+         $('.backdrop, .box_edit').animate({'opacity':'0'}, 300, 'linear', function(){
+          $('.backdrop, .box_edit').css('display', 'none');
+        });
+      }
+ 
+    </script>
 
 </head>
 <body>
@@ -49,8 +86,8 @@
 <ul id="nav">
   <li><a href="#">Data Museum</a>
     <ul>
-      <li><a href="#">Add</a></li>
-      <li><a href="#">Edit</a></li>
+      <li>  <a href="#" class="lightbox">Add</a></li>
+      <li><a href="#" class="lightbox_edit">Edit</a></li>
       <li><a href="#">Delete</a></li>
     </ul>
   </li>
@@ -70,12 +107,34 @@
 
 <?php echo $map['html']; ?>
 
-<div id="operation"> <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</button> </div>
+<div id="operation"> <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><a href="<?=base_url()?>login"> Log Out</a></button> 
+ <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Current Location</button></div>
+
+
  
+
 </div>
 </div>
 </div>
 
+   <div class="backdrop"></div>
+  <div class="box"><div class="close">x</div>   <table>
+    <tr><td>Museum Name : </td><td><input type="text"></input></td></tr>
+    <tr><td>Museum Latitude : </td><td><input type="text"></input></td></tr>
+    <tr><td>Museum Longitude : </td><td><input type="text"></input></td></tr>
+    <tr><td>Museum Alamat : </td><td><input type="text"></input></td></tr>
+    <tr><td>Museum Price : </td><td><input type="text"></input></td></tr>
+    <tr><td>Open Time : </td><td><input type="text"></input></td></tr>
+    <tr><td>Phone : </td><td><input type="text"></input></td></tr>
+    <tr><td>Photo : </td><td><input type="text"></input></td><td><input type="button" value="Browse"></input></td></tr>
+    <tr><td><input type="button" value="Submit"></td></tr>
+  </table></div>
+  <div class="backdrop"></div>
+  <div class="box_edit"><div class="close">x</div>   <table>
+    <tr><td>Input Museum Name : </td><td><input type="text"></input></td></tr>
+    <tr><td><input type="button" value="Submit"></td></tr>
+  </table></div>
+ 
 </body>
 </html>
 
