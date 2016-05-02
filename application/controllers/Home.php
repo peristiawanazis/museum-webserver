@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+include_once (dirname(__FILE__) . "/Add_marker.php");
 
 session_start(); //we need to call PHP's session object to access it through CI
 class Home extends CI_controller {
@@ -28,7 +28,7 @@ class Home extends CI_controller {
  $marker = array();
  $marker['infowindow_content'] = '<b>Nama : </b>'.''.$coordinate->museum_name."<br>".
  								 '<b>Price : </b>'.''.$coordinate->museum_price."<br>".
- 								 '<b>Regional : </b>'.''.$coordinate->regional_id."<br>".
+ 								 '<b>Regional : </b>'.''.$coordinate->regional_name."<br>".
  								 '<b>Deskripsi : </b>'.''.$coordinate->museum_desc."<br>".
  								 '<b>Jam Buka : </b>'.''.$coordinate->museum_open."<br>".
  								 '<b>Tutup : </b>'.''.$coordinate->museum_close."<br>";
@@ -40,14 +40,14 @@ class Home extends CI_controller {
  $data = array();
  $data['map'] = $this->googlemaps->create_map();
  // Load our view, passing through the map data
+ //$data['am'] = $this->load->view('add_map');
  $this->load->view('main', $data);
 }
 
 
- 
- 
+function lm(){
+$this->load->view('add_map');
+} 
+
 }
- 
-
-
-?>
+ ?>

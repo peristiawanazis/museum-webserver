@@ -118,17 +118,7 @@
 </div>
 
    <div class="backdrop"></div>
-  <div class="box"><div class="close">x</div>   <table>
-    <tr><td>Museum Name : </td><td><input type="text"></input></td></tr>
-    <tr><td>Museum Latitude : </td><td><input type="text"></input></td></tr>
-    <tr><td>Museum Longitude : </td><td><input type="text"></input></td></tr>
-    <tr><td>Museum Alamat : </td><td><input type="text"></input></td></tr>
-    <tr><td>Museum Price : </td><td><input type="text"></input></td></tr>
-    <tr><td>Open Time : </td><td><input type="text"></input></td></tr>
-    <tr><td>Phone : </td><td><input type="text"></input></td></tr>
-    <tr><td>Photo : </td><td><input type="text"></input></td><td><input type="button" value="Browse"></input></td></tr>
-    <tr><td><input type="button" value="Submit"></td></tr>
-  </table></div>
+  <div class="box"><div class="close">x</div>   <?php 'echo base_url()main/lm'?></div>
   <div class="backdrop"></div>
   <div class="box_edit"><div class="close">x</div>   <table>
     <tr><td>Input Museum Name : </td><td><input type="text"></input></td></tr>
