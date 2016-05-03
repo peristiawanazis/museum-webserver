@@ -30,8 +30,8 @@ class Home extends CI_controller {
  								 '<b>Price : </b>'.''.$coordinate->museum_price."<br>".
  								 '<b>Regional : </b>'.''.$coordinate->regional_name."<br>".
  								 '<b>Deskripsi : </b>'.''.$coordinate->museum_desc."<br>".
- 								 '<b>Jam Buka : </b>'.''.$coordinate->museum_open."<br>".
- 								 '<b>Tutup : </b>'.''.$coordinate->museum_close."<br>";
+ 								 '<b>Jam Buka : </b>'.''.date('h:ia ', strtotime($coordinate->museum_open))."<br>".
+ 								 '<b>Tutup : </b>'.''.date('h:ia ', strtotime($coordinate->museum_close))."<br>";
 
  $marker['position'] = $coordinate->museum_lat.','.$coordinate->museum_long;
  $this->googlemaps->add_marker($marker);
