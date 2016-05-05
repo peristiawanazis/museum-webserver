@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 include_once (dirname(__FILE__) . "/Add_marker.php");
 
-session_start(); //we need to call PHP's session object to access it through CI
+ //we need to call PHP's session object to access it through CI
 class Home extends CI_controller {
  
  function __construct()

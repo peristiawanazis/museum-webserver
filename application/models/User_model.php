@@ -1,11 +1,13 @@
 <?php
 Class User_model extends CI_Model
-{
+{function __construct(){
+    $this->load->database();
+  }
  function login($username, $password)
  {
    $this -> db -> select('user_id, user_password, user_name');
    $this -> db -> from('user');
-   $this -> db -> where('user_name', $usern_ame);
+   $this -> db -> where('user_name', $user_name);
    $this -> db -> where('user_password', MD5($user_password));
    $this -> db -> limit(1);
  

@@ -118,11 +118,37 @@
 </div>
 
    <div class="backdrop"></div>
-  <div class="box"><div class="close">x</div>   <?php 'echo base_url()main/lm'?></div>
+  <div class="box"><div class="close">x</div>
+  <table>
+  <tr><td>Latitude : </td><td><input type="text" size="35"></input></td></tr>
+  <tr><td>Longitude : </td><td><input type="text" size="35"></input></td></tr>   
+  <tr><td>Map Name : </td><td><input type="text" size="35"></input></td></tr>  
+  <tr><td>Harga : </td><td><input type="text" size="35"></input></td></tr> 
+  <tr><td>Regional : </td><td><select name="cars">
+    <option value="volvo">Jakarta Timur</option>
+    <option value="saab">Jakarta Barat</option>
+    <option value="fiat">Jakarta Pusat</option>
+    <option value="audi">Jakarta Selatan</option>
+    <option value="audi">Jakarta Utara</option>
+  </select></input></td></tr>
+  <tr><td>Description : </td><td><input type="text" size="35"></input></td></tr> 
+  <tr><td>Jam Buka : </td><td><input type="text" size="35"></input></td></tr> 
+  <tr><td>Jam Tutup : </td><td><input type="text" size="35"></input></td></tr> 
+  <tr><td><input type="button" value="Submit"></td></tr>
+  </table>
+  </div>
   <div class="backdrop"></div>
-  <div class="box_edit"><div class="close">x</div>   <table>
-    <tr><td>Input Museum Name : </td><td><input type="text"></input></td></tr>
-    <tr><td><input type="button" value="Submit"></td></tr>
+  <div class="box_edit"><div class="close">x</div>   
+  Input Museum Name : <input type="text"></input><input type="button" value="Search" /><br><br>
+  <table>
+   <tr><td>Map Name : </td><td><input type="text" size="35" value="Museum Fatahillah" =""></input></td><td></td></tr>  
+   <tr><td>Price : </td><td><input type="text" size="35" value="10000" =""></input></td><td></td></tr> 
+   <tr><td>Regional : </td><td><input type="text" size="35" value="Jakarta Timur" =""></input></td><td></td></tr> 
+   <tr><td>Deskripsi : </td><td><input type="text" size="35" value="Museum untuk barang kerajaan fatahilah" =""></input></td>
+    <tr><td>Jam Buka : </td><td><input type="text" size="35" value="07:00am" =""></input></td>
+   <tr><td>Jam Tutup : </td><td><input type="text" size="35" value="08:00pm" =""></input></td>
+   <td></td></tr> 
+     <tr><td><input type="button" value="Update"></td></tr>
   </table></div>
  
 </body>
