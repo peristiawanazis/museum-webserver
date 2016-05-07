@@ -107,10 +107,9 @@
 
 <?php echo $map['html']; ?>
 
-<div id="operation"> <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><a href="<?=base_url()?>login"> Log Out</a></button> 
+<div id="operation"> <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><a href="<?php echo base_url();?>Home/do_logout"> Log Out</a></button> 
  <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Current Location</button></div>
-
-
+ 
  
 
 </div>

@@ -22,8 +22,8 @@
       <a class="navbar-brand" href="#">Server Web Museum Apps</a>
     </div>
      </div>
-	</nav>
-
+     </nav>
+ <form action='<?php echo base_url();?>login/process' method='post' name='process'>
 <div class="container">    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
@@ -58,7 +58,7 @@
 
                                     </div>
                                 </div>
-
+<?php if(! is_null($msg)) echo $msg;?>    
                             </form>     
 
 
@@ -66,8 +66,10 @@
                         </div>                     
                     </div>  
         </div>
+
 </div>
-   
+        
+     </form>
 
 
   </body>

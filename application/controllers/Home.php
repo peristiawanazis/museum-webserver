@@ -8,7 +8,7 @@ class Home extends CI_controller {
  {
    parent::__construct();
    $this->load->helper('url');
-
+	$this->check_isvalidated();
  }
  
  function index()
@@ -44,6 +44,15 @@ class Home extends CI_controller {
  $this->load->view('main', $data);
 }
 
+private function check_isvalidated(){
+		if(! $this->session->userdata('validated')){
+			redirect('login');
+		}
+	}
+public function do_logout(){
+		$this->session->sess_destroy();
+		redirect('login');
+	}
 
 function lm(){
 $this->load->view('add_map');
