@@ -42,6 +42,11 @@
           $('.box_edit').animate({'opacity':'1.00'}, 300, 'linear');
           $('.backdrop, .box_edit').css('display', 'block');
         });
+         $('.lightbox_edit_admin').click(function(){
+          $('.backdrop, .box_edit_admin').animate({'opacity':'.50'}, 300, 'linear');
+          $('.box_edit_admin').animate({'opacity':'1.00'}, 300, 'linear');
+          $('.backdrop, .box_edit_admin').css('display', 'block');
+        });
  
         $('.close').click(function(){
           close_box();
@@ -60,6 +65,9 @@
         });
          $('.backdrop, .box_edit').animate({'opacity':'0'}, 300, 'linear', function(){
           $('.backdrop, .box_edit').css('display', 'none');
+        });
+          $('.backdrop, .box_edit_admin').animate({'opacity':'0'}, 300, 'linear', function(){
+          $('.backdrop, .box_edit_admin').css('display', 'none');
         });
       }
  
@@ -93,7 +101,7 @@
   </li>
   <li><a href="#">Administrator</a>
     <ul>
-      <li><a href="#">Edit Profil</a></li>
+       <li><a href="#" class="lightbox_edit_admin">Edit Profil</a></li>
       <li><a href="#">Help</a></li>
     </ul>
   </li>
@@ -109,7 +117,7 @@
 
 <div id="operation"> <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><a href="<?php echo base_url();?>Home/do_logout"> Log Out</a></button> 
  <button type="button" class="btn btn-default btn-default"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Current Location</button></div>
- 
+
  
 
 </div>
@@ -136,6 +144,7 @@
   <tr><td><input type="button" value="Submit"></td></tr>
   </table>
   </div>
+
   <div class="backdrop"></div>
   <div class="box_edit"><div class="close">x</div>   
   Input Museum Name : <input type="text"></input><input type="button" value="Search" /><br><br>
@@ -149,6 +158,16 @@
    <td></td></tr> 
      <tr><td><input type="button" value="Update"></td></tr>
   </table></div>
+
+  <div class="backdrop"></div>
+  <div class="box_edit_admin"><div class="close">x</div>
+  <table>
+  <tr><td>Username : </td><td><input type="text" size="35" value="<?php echo $username; ?>"></input></td></tr>
+  <tr><td>Password : </td><td><input type="text" size="35" value="<?php echo $password; ?>"></input></td></tr>   
+ 
+  <tr><td><input type="button" value="Update"></td></tr>
+  </table>
+  </div>
  
 </body>
 </html>

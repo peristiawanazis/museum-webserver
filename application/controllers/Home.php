@@ -8,12 +8,13 @@ class Home extends CI_controller {
  {
    parent::__construct();
    $this->load->helper('url');
-	$this->check_isvalidated();
+	
  }
  
  function index()
  {
-   // Load the library
+   	if($this->session->userdata('logged_in'))
+   {
  $this->load->library('googlemaps');
  // Load our model
  $this->load->model('Map_model', '', TRUE);
@@ -39,16 +40,17 @@ class Home extends CI_controller {
  // Create the map
  $data = array();
  $data['map'] = $this->googlemaps->create_map();
- // Load our view, passing through the map data
- //$data['am'] = $this->load->view('add_map');
+ $session_data = $this->session->userdata('logged_in');
+ $data['username'] = $session_data['user_name'];
+ $data['password'] = $session_data['user_password'];
  $this->load->view('main', $data);
 }
 
-private function check_isvalidated(){
-		if(! $this->session->userdata('validated')){
-			redirect('login');
-		}
-	}
+
+else{
+			redirect('login');}
+	}		
+	
 public function do_logout(){
 		$this->session->sess_destroy();
 		redirect('login');

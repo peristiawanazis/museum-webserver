@@ -100,7 +100,7 @@ max-height: 620px;
     }
  
  
-    .box, .box_edit
+    .box, .box_edit, .box_edit_admin
     {
       position:absolute;
       top:20%;

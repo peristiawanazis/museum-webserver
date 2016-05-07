@@ -24,11 +24,11 @@ class User_model extends CI_Model{
       // If there is a user, then create session data
       $row = $query->row();
       $data = array(
-          'user_name' => $row->lname,
-          'user_password' => $row->username,
+          'user_name' => $row->user_name,
+          'user_password' => $row->user_password,
           'validated' => true
           );
-      $this->session->set_userdata($data);
+      $this->session->set_userdata('logged_in', $data);
       return true;
     }
     // If the previous process did not validate
