@@ -8,7 +8,7 @@ class Home extends CI_controller {
  {
    parent::__construct();
    $this->load->helper('url');
-	
+   $this->load->helper('form');
  }
  
  function index()
@@ -43,6 +43,7 @@ class Home extends CI_controller {
  $session_data = $this->session->userdata('logged_in');
  $data['username'] = $session_data['user_name'];
  $data['password'] = $session_data['user_password'];
+ $data['regional'] = $this->Map_model->get_regional();
  $this->load->view('main', $data);
 }
 
@@ -50,15 +51,36 @@ class Home extends CI_controller {
 else{
 			redirect('login');}
 	}		
+
+public function insert(){      
+    $this->load->database();
+    $this->load->model('Map_model');
+
+    $data_map = array(
+      'museum_lat' => $this->input->post('latitude'),
+      'museum_long'        => $this->input->post('longitude')
+    );
+
+    $data_address = array(
+      'address'    => $this->input->post('address'),
+      'city'       => $this->input->post('city'),
+      'zipcode'    => $this->input->post('zipcode')
+    );    
+
+    $this->my_model->insert_entry($data_user, $data_address);
+
+   
+}
+
+
+
 	
 public function do_logout(){
 		$this->session->sess_destroy();
 		redirect('login');
 	}
 
-function lm(){
-$this->load->view('add_map');
-} 
+
 
 }
  ?>

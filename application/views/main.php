@@ -37,12 +37,12 @@
           $('.box').animate({'opacity':'1.00'}, 300, 'linear');
           $('.backdrop, .box').css('display', 'block');
         });
-        $('.lightbox_edit').click(function(){
+        $('.edit').click(function(){
           $('.backdrop, .box_edit').animate({'opacity':'.50'}, 300, 'linear');
           $('.box_edit').animate({'opacity':'1.00'}, 300, 'linear');
           $('.backdrop, .box_edit').css('display', 'block');
         });
-         $('.lightbox_edit_admin').click(function(){
+         $('.lightbox_admin').click(function(){
           $('.backdrop, .box_edit_admin').animate({'opacity':'.50'}, 300, 'linear');
           $('.box_edit_admin').animate({'opacity':'1.00'}, 300, 'linear');
           $('.backdrop, .box_edit_admin').css('display', 'block');
@@ -63,8 +63,8 @@
         $('.backdrop, .box').animate({'opacity':'0'}, 300, 'linear', function(){
           $('.backdrop, .box').css('display', 'none');
         });
-         $('.backdrop, .box_edit').animate({'opacity':'0'}, 300, 'linear', function(){
-          $('.backdrop, .box_edit').css('display', 'none');
+         $('.backdrop_edit, .box_edit').animate({'opacity':'0'}, 300, 'linear', function(){
+          $('.backdrop_edit, .box_edit').css('display', 'none');
         });
           $('.backdrop, .box_edit_admin').animate({'opacity':'0'}, 300, 'linear', function(){
           $('.backdrop, .box_edit_admin').css('display', 'none');
@@ -95,13 +95,13 @@
   <li><a href="#">Data Museum</a>
     <ul>
       <li>  <a href="#" class="lightbox">Add</a></li>
-      <li><a href="#" class="lightbox_edit">Edit</a></li>
+      <li><a href="#" class="edit">Edit</a></li>
       <li><a href="#">Delete</a></li>
     </ul>
   </li>
   <li><a href="#">Administrator</a>
     <ul>
-       <li><a href="#" class="lightbox_edit_admin">Edit Profil</a></li>
+       <li><a href="#" class="lightbox_admin">Edit Profil</a></li>
       <li><a href="#">Help</a></li>
     </ul>
   </li>
@@ -127,25 +127,21 @@
    <div class="backdrop"></div>
   <div class="box"><div class="close">x</div>
   <table>
-  <tr><td>Latitude : </td><td><input type="text" size="35"></input></td></tr>
-  <tr><td>Longitude : </td><td><input type="text" size="35"></input></td></tr>   
-  <tr><td>Map Name : </td><td><input type="text" size="35"></input></td></tr>  
-  <tr><td>Harga : </td><td><input type="text" size="35"></input></td></tr> 
-  <tr><td>Regional : </td><td><select name="cars">
-    <option value="volvo">Jakarta Timur</option>
-    <option value="saab">Jakarta Barat</option>
-    <option value="fiat">Jakarta Pusat</option>
-    <option value="audi">Jakarta Selatan</option>
-    <option value="audi">Jakarta Utara</option>
-  </select></input></td></tr>
-  <tr><td>Description : </td><td><input type="text" size="35"></input></td></tr> 
-  <tr><td>Jam Buka : </td><td><input type="text" size="35"></input></td></tr> 
-  <tr><td>Jam Tutup : </td><td><input type="text" size="35"></input></td></tr> 
+  <tr><td>Latitude : </td><td><input type="text" id="latitude" size="35"></input></td></tr>
+  <tr><td>Longitude : </td><td><input type="text" id="longitude" size="35"></input></td></tr>   
+  <tr><td>Map Name : </td><td><input type="text" id="map_name" size="35"></input></td></tr>  
+  <tr><td>Harga : </td><td><input type="text" id="harga" size="35"></input></td></tr> 
+  <tr><td>Regional : </td><td><?php
+                $attributes = 'class = "form-control" id = "regional"';
+                echo form_dropdown('regional',$regional,set_value('regional'),$attributes);?></td></tr>
+  <tr><td>Description : </td><td><input type="text" id="desc" size="35"></input></td></tr> 
+  <tr><td>Jam Buka : </td><td><input type="text" id="open" size="35"></input></td></tr> 
+  <tr><td>Jam Tutup : </td><td><input type="text" id="close" size="35"></input></td></tr> 
   <tr><td><input type="button" value="Submit"></td></tr>
   </table>
   </div>
-
-  <div class="backdrop"></div>
+<!-- berakhir -->
+  <div class="backdrop_edit"></div>
   <div class="box_edit"><div class="close">x</div>   
   Input Museum Name : <input type="text"></input><input type="button" value="Search" /><br><br>
   <table>

@@ -19,4 +19,32 @@ class Map_model extends CI_Model {
  }
  return $return;
  }
+ function get_regional()     
+    { 
+        $this->db->select('regional_id');
+        $this->db->select('regional_name');
+        $this->db->from('regional');
+        $query = $this->db->get();
+        $result = $query->result();
+
+        //array to store department id & department name
+        $dept_id = array('-SELECT-');
+        $dept_name = array('-SELECT-');
+
+        for ($i = 0; $i < count($result); $i++)
+        {
+            array_push($dept_id, $result[$i]->regional_id);
+            array_push($dept_name, $result[$i]->regional_name);
+        }
+        return $department_result = array_combine($dept_id, $dept_name);
+    }
+
+function insert_entry($data_map, $data_address) {
+
+    $this->db->insert('museum', $data_map);
+
+  //  $data_address['customerID'] = $this->db->insert_id();
+
+    $this->db->insert('museum_loc', $data_address);
+}
 }
