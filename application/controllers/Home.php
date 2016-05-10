@@ -44,6 +44,8 @@ class Home extends CI_controller {
  $data['username'] = $session_data['user_name'];
  $data['password'] = $session_data['user_password'];
  $data['regional'] = $this->Map_model->get_regional();
+ $data['aa'] = $this->Map_model->getrowid();
+
  $this->load->view('main', $data);
 }
 
@@ -67,7 +69,7 @@ public function insert(){
       'zipcode'    => $this->input->post('zipcode')
     );    
 
-    $this->my_model->insert_entry($data_user, $data_address);
+    $this->my_model->insert_entry($data_map, $data_address);
 
    
 }

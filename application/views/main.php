@@ -127,6 +127,7 @@
    <div class="backdrop"></div>
   <div class="box"><div class="close">x</div>
   <table>
+  <tr><td>ID Map : </td><td><input type="text" id="idmap" size="35" value="<?php echo 'm'.$aa; ?>" disabled></input></td></tr>
   <tr><td>Latitude : </td><td><input type="text" id="latitude" size="35"></input></td></tr>
   <tr><td>Longitude : </td><td><input type="text" id="longitude" size="35"></input></td></tr>   
   <tr><td>Map Name : </td><td><input type="text" id="map_name" size="35"></input></td></tr>  

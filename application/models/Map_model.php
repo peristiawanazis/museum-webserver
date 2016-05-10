@@ -39,12 +39,18 @@ class Map_model extends CI_Model {
         return $department_result = array_combine($dept_id, $dept_name);
     }
 
-function insert_entry($data_map, $data_address) {
+function insert_entry($data_map, $data_address) {	
 
     $this->db->insert('museum', $data_map);
 
   //  $data_address['customerID'] = $this->db->insert_id();
 
     $this->db->insert('museum_loc', $data_address);
+}
+
+function getrowid(){
+	 $count = $this->db->count_all('museum');
+
+return $count+1;
 }
 }
