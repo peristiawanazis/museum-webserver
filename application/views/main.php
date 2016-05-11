@@ -126,20 +126,22 @@
 
    <div class="backdrop"></div>
   <div class="box"><div class="close">x</div>
+  <form action='<?php echo base_url();?>Home/insert' method='post' name=''>
   <table>
-  <tr><td>ID Map : </td><td><input type="text" id="idmap" size="35" value="<?php echo 'm'.$aa; ?>" disabled></input></td></tr>
-  <tr><td>Latitude : </td><td><input type="text" id="latitude" size="35"></input></td></tr>
-  <tr><td>Longitude : </td><td><input type="text" id="longitude" size="35"></input></td></tr>   
-  <tr><td>Map Name : </td><td><input type="text" id="map_name" size="35"></input></td></tr>  
-  <tr><td>Harga : </td><td><input type="text" id="harga" size="35"></input></td></tr> 
+  <tr><td>ID Map : </td><td><input type="text" id="idmap" name="idmap" size="35" value="<?php echo 'm'.$aa; ?>"></input></td></tr>
+  <tr><td>Latitude : </td><td><input type="text" id="latitude" name="latitude" size="35"></input></td></tr>
+  <tr><td>Longitude : </td><td><input type="text" id="longitude" name="longitude" size="35"></input></td></tr>   
+  <tr><td>Map Name : </td><td><input type="text" id="map_name" name="map_name" size="35"></input></td></tr>  
+  <tr><td>Harga : </td><td><input type="text" id="harga" name="harga" size="35"></input></td></tr> 
   <tr><td>Regional : </td><td><?php
-                $attributes = 'class = "form-control" id = "regional"';
+                $attributes = 'class = "form-control" name="regional" id = "regional"';
                 echo form_dropdown('regional',$regional,set_value('regional'),$attributes);?></td></tr>
-  <tr><td>Description : </td><td><input type="text" id="desc" size="35"></input></td></tr> 
-  <tr><td>Jam Buka : </td><td><input type="text" id="open" size="35"></input></td></tr> 
-  <tr><td>Jam Tutup : </td><td><input type="text" id="close" size="35"></input></td></tr> 
-  <tr><td><input type="button" value="Submit"></td></tr>
+  <tr><td>Description : </td><td><input type="text" id="desc" name="desc" size="35"></input></td></tr> 
+  <tr><td>Jam Buka : </td><td><input type="time"  id="open" name="open" size="35"></input></td></tr> 
+  <tr><td>Jam Tutup : </td><td><input type="time" id="close" name="close" size="35"></input></td></tr> 
+  <tr><td><input type="submit" value="Submit"></td></tr>
   </table>
+  </form>
   </div>
 <!-- berakhir -->
   <div class="backdrop_edit"></div>

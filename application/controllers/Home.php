@@ -9,6 +9,7 @@ class Home extends CI_controller {
    parent::__construct();
    $this->load->helper('url');
    $this->load->helper('form');
+   $this->load->database();
  }
  
  function index()
@@ -58,19 +59,26 @@ public function insert(){
     $this->load->database();
     $this->load->model('Map_model');
 
-    $data_map = array(
-      'museum_lat' => $this->input->post('latitude'),
-      'museum_long'        => $this->input->post('longitude')
+    $data_museum = array(
+      'museum_id' => $this->input->post('idmap'),
+      'museum_name' => $this->input->post('map_name'),
+      'museum_price' => $this->input->post('harga'),
+      'regional_id' => $this->input->post('regional'),
+      'museum_desc' => $this->input->post('desc'),
+      'museum_open' => $this->input->post('open'),
+      'museum_close' => $this->input->post('close')
+
     );
 
-    $data_address = array(
-      'address'    => $this->input->post('address'),
-      'city'       => $this->input->post('city'),
-      'zipcode'    => $this->input->post('zipcode')
+    $data_museumloc = array(
+     'museum_id' => $this->input->post('idmap'),
+      'museum_lat' => $this->input->post('latitude'),
+      'museum_long' => $this->input->post('longitude')
     );    
 
-    $this->my_model->insert_entry($data_map, $data_address);
-
+    $this->db->insert('museum', $data_museum);
+    $this->db->insert('museum_loc', $data_museumloc);
+    redirect('Home');
    
 }
 
