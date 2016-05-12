@@ -100,7 +100,7 @@ max-height: 580px;
     }
  
  
-    .box, .box_edit, .box_edit_admin
+    .box, .box_edit, .box_edit_admin, .box_delete_marker
     {
       position:absolute;
       top:20%;

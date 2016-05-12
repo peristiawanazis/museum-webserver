@@ -43,14 +43,11 @@ function insert_entry($data_museum, $data_museumloc) {
 
     $this->db->insert('museum', $data_museum);
 
-  //  $data_address['customerID'] = $this->db->insert_id();
-
-    $this->db->insert('museum_loc', $data_museumloc);
+ 	$this->db->insert('museum_loc', $data_museumloc);
 }
 
 function getrowid(){
 	 $count = $this->db->count_all('museum');
-
-return $count+1;
+	 return $count+1;
 }
 }

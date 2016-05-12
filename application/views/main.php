@@ -47,6 +47,11 @@
           $('.box_edit_admin').animate({'opacity':'1.00'}, 300, 'linear');
           $('.backdrop, .box_edit_admin').css('display', 'block');
         });
+          $('.lightbox_delete').click(function(){
+          $('.backdrop, .box_delete_marker').animate({'opacity':'.50'}, 300, 'linear');
+          $('.box_delete_marker').animate({'opacity':'1.00'}, 300, 'linear');
+          $('.backdrop, .box_delete_marker').css('display', 'block');
+        });
  
         $('.close').click(function(){
           close_box();
@@ -66,8 +71,11 @@
          $('.backdrop_edit, .box_edit').animate({'opacity':'0'}, 300, 'linear', function(){
           $('.backdrop_edit, .box_edit').css('display', 'none');
         });
-          $('.backdrop, .box_edit_admin').animate({'opacity':'0'}, 300, 'linear', function(){
-          $('.backdrop, .box_edit_admin').css('display', 'none');
+          $('.backdrop_admin, .box_edit_admin').animate({'opacity':'0'}, 300, 'linear', function(){
+          $('.backdrop_admin, .box_edit_admin').css('display', 'none');
+        });
+           $('.backdrop_delete, .box_delete_marker').animate({'opacity':'0'}, 300, 'linear', function(){
+          $('.backdrop_delete, .box_delete_marker').css('display', 'none');
         });
       }
  
@@ -96,7 +104,7 @@
     <ul>
       <li>  <a href="#" class="lightbox">Add</a></li>
       <li><a href="#" class="edit">Edit</a></li>
-      <li><a href="#">Delete</a></li>
+      <li><a href="#" class="lightbox_delete">Delete</a></li>
     </ul>
   </li>
   <li><a href="#">Administrator</a>
@@ -124,11 +132,11 @@
 </div>
 </div>
 
-   <div class="backdrop"></div>
+   <div class="backdrop_admin"></div>
   <div class="box"><div class="close">x</div>
   <form action='<?php echo base_url();?>Home/insert' method='post' name=''>
   <table>
-  <tr><td>ID Map : </td><td><input type="text" id="idmap" name="idmap" size="35" value="<?php echo 'm'.$aa; ?>"></input></td></tr>
+  <tr><td>ID Map : </td><td><input type="text" id="idmap" name="idmap" size="35" value="<?php echo 'm'.$aa; ?>" disabled></input></td></tr>
   <tr><td>Latitude : </td><td><input type="text" id="latitude" name="latitude" size="35"></input></td></tr>
   <tr><td>Longitude : </td><td><input type="text" id="longitude" name="longitude" size="35"></input></td></tr>   
   <tr><td>Map Name : </td><td><input type="text" id="map_name" name="map_name" size="35"></input></td></tr>  
@@ -167,6 +175,13 @@
   <tr><td><input type="button" value="Update"></td></tr>
   </table>
   </div>
+
+   <div class="backdrop_delete"></div>
+  <div class="box_delete_marker"><div class="close">x</div>   
+  Input Museum Name : <input type="text"></input><input type="button" value="Search" /><br><br>
+  <table>
+   
+  </table></div>
  
 </body>
 </html>
